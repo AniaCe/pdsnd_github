@@ -9,6 +9,7 @@ Bikeshare
 An interactive program to view the statistics about usage of city bikes in New York, Washington or Chicago. Pick up the name of the city and find out about bikes' usage.
 
 ### Files used
+The files used in the project:
 washington.csv
 newjork.csv
 chicago.csv
