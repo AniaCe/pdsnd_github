@@ -7,6 +7,7 @@
 import pandas as pd
 import time
 import numpy as np
+#import the libraries
 
 city_data = { 'chicago': 'chicago.csv',
               'newyork': 'newyork.csv',
