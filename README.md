@@ -1,14 +1,17 @@
 ### Date created
-August/September 2019
+Project created in August/September 2019.
 
 ### Project Title
-Replace the Project Title
+Bikeshare
 
 ### Description
-Describe what your project is about and what it does
+An interactive program to view the statistics about usage of city bikes in New York, Washington or Chicago. Pick up the name of the city and find out about bikes' usage.
 
 ### Files used
-Include the files used
+The files with data used in the project:
+washington.csv
+newjork.csv
+chicago.csv
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+Udacity rulez! :)
