@@ -1,5 +1,6 @@
 ### Date created
-Project created in August 2019, readme file in September 2019
+Project created in August 2019.
+Readme file created in September 2019.
 
 ### Project Title
 Bikeshare
