@@ -1,15 +1,16 @@
 ### Date created
-Include the date you created this project and README file.
+Project created in August 2019, readme file in September 2019
 
 ### Project Title
-Replace the Project Title
+Bikeshare
 
 ### Description
-Describe what your project is about and what it does
+An interactive program to view the statistics about usage of city bikes in New York, Washington or Chicago.
 
 ### Files used
-Include the files used
+washington.csv
+newjork.csv
+chicago.csv
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+Udacity rulez! :)
