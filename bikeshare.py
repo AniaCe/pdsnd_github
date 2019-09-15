@@ -3,7 +3,7 @@
 
 # In[ ]:
 
-
+# I was supposed to change something in the code to make is faster but do not have much time for that :)
 import pandas as pd
 import time
 import numpy as np
@@ -18,10 +18,10 @@ def get_filters(city, month, day):
 
 # gets user input  for a city
     print('Pick up a city you\'d like to see data from: Chicago, NewYork, Washington. Type \'q\' if you want to quit')
-    cities = ['chicago', 'newyork', 'washington'] 
+    cities = ['chicago', 'newyork', 'washington']
     city = ''
     while city != 'q':
-        city = str(input('Enter a city: ').lower()) 
+        city = str(input('Enter a city: ').lower())
         if city in cities:
             print('Chosen city is: ', city.title())
             break
@@ -33,11 +33,11 @@ def get_filters(city, month, day):
 
 # gets user input for a month
     print('Pick up a month you\'d like to see data from: all, january, february, ..., december. Type \'q\' if you want to quit')
-    months = ['all', 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 
-              'october', 'november', 'december'] 
+    months = ['all', 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september',
+              'october', 'november', 'december']
     month = ''
     while month != 'q':
-        month = str(input('Enter a month: ').lower()) 
+        month = str(input('Enter a month: ').lower())
         if month in months:
             print('Chosen month is: ', month.title())
             break
@@ -50,10 +50,10 @@ def get_filters(city, month, day):
 
 # gets user input for day of a week
     print('Pick up a day you\'d like to see data from: all, monday, tuesday, ..., sunday. Type \'q\' if you want to quit')
-    days = ['all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'] 
+    days = ['all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
     day = ''
     while day != 'q':
-        day = str(input('Enter a day: ').lower()) 
+        day = str(input('Enter a day: ').lower())
         if day in days:
             print('Chosen day is: ', day.title())
             break
@@ -64,14 +64,14 @@ def get_filters(city, month, day):
     print('-'*40)
 
     return city, month, day
-        
+
 # loads data for the specified city and filters by month and day if applicable
 def load_data(city, month, day):
     if city !='q':
         if month !='q':
             if day !='q':
-                months = ['all', 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 
-                          'october', 'november', 'december'] 
+                months = ['all', 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september',
+                          'october', 'november', 'december']
                 df = pd.read_csv(city_data[city])
                 df['Start Time'] = pd.to_datetime(df['Start Time'])
                 df['month'] = df['Start Time'].dt.month
@@ -83,7 +83,7 @@ def load_data(city, month, day):
                 # filter by month if applicable
                 if month != 'all':
                     # use the index of the months list to get the corresponding int
-                    month = months.index(month) 
+                    month = months.index(month)
                     # filter by month to create the new dataframe
                     df = df[df['month'] == month]
                 # filter by day of week if applicable
@@ -104,7 +104,7 @@ def load_data(city, month, day):
         df = pd.DataFrame()
         print('No filters were applied to calculate the statistics')
         return df
-    
+
     # displays statistics on the most frequent times of travel.
 def time_stats(df):
     print('\nCalculating The Most Frequent Times of Travel...\n')
@@ -121,7 +121,7 @@ def time_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
+
 # displays statistics on the most popular stations and trip.
 def station_stats(df):
     print('\nCalculating The Most Popular Stations and Trip...\n')
@@ -143,7 +143,7 @@ def station_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
+
 # displays statistics on the total and average trip duration
 def trip_duration_stats(df):
     print('\nCalculating Trip Duration...\n')
@@ -160,12 +160,12 @@ def trip_duration_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
+
 # displays statistics on bikeshare users
 def user_stats(df):
     print('\nCalculating User Stats...\n')
     start_time = time.time()
-    
+
     # Display counts of user types
     user_types = df['User Type'].value_counts()
     print(user_types)
@@ -184,9 +184,9 @@ def user_stats(df):
         birthmode = df['Birth Year'].mode()
         print('Most earliest, most recent and most common year of birth are: ',birthmin, ' ',birthmax, ' ', birthmode)
     else:
-        print('There is no data to present statistics about age') 
-    
-    
+        print('There is no data to present statistics about age')
+
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -196,7 +196,7 @@ def display_data(df):
     n = 0
     print(display)
     while True:
-        display = str(input('Enter a value: ').lower())    
+        display = str(input('Enter a value: ').lower())
         if display == 'yes':
             print('all good')
             print(df.iloc[n:n+5])
@@ -204,16 +204,16 @@ def display_data(df):
         else:
             print('Thank you, no more data will be shown')
             break
-    
+
 def main():
     while True:
         city =''
         month = ''
-        
+
         day = ''
         city, month, day = get_filters(city, month, day)
         df = load_data(city, month, day)
-       
+
         if df.empty != True:
             time_stats(df)
             station_stats(df)
@@ -222,7 +222,7 @@ def main():
             display_data(df)
         else:
             print('Data frame is empty')
-        
+
 
         df.head()
         restart = input('\nWould you like to restart? Enter yes to restart or anything to stop.\n')
@@ -240,7 +240,3 @@ if __name__ == "__main__":
 
 
 # In[ ]:
-
-
-
-
